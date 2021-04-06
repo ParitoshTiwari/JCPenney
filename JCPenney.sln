@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PartnerInventory", "Partner
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartnerAPI", "PartnerAPI\PartnerAPI.csproj", "{FCFC0D62-FF23-48AF-ABC8-AF4F795E5B76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement", "Partners\PartnerInventory\InventoryManagement\InventoryManagement.csproj", "{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{FCFC0D62-FF23-48AF-ABC8-AF4F795E5B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFC0D62-FF23-48AF-ABC8-AF4F795E5B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFC0D62-FF23-48AF-ABC8-AF4F795E5B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +42,6 @@ Global
 		{F8AEE08B-E67C-41DC-8BDD-6666539432BF} = {FA70A1D9-6AF7-4D25-BA92-71ED294BC21A}
 		{37EB931F-942E-4B18-B188-2C08BCDE303B} = {FA70A1D9-6AF7-4D25-BA92-71ED294BC21A}
 		{FCFC0D62-FF23-48AF-ABC8-AF4F795E5B76} = {F8AEE08B-E67C-41DC-8BDD-6666539432BF}
+		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3} = {37EB931F-942E-4B18-B188-2C08BCDE303B}
 	EndGlobalSection
 EndGlobal
