@@ -1,4 +1,6 @@
-﻿<h3>Delete Partner</h3>
+﻿@page "/deletePartner"
+@inherits PartnerBase
+<h3>Delete Partner</h3>
 
 
 Enter email Id for which partner needs to be deleted : <input type="text" @bind-value="EmailId" />
@@ -17,6 +19,8 @@ Enter email Id for which partner needs to be deleted : <input type="text" @bind-
         if (!string.IsNullOrEmpty(EmailId))
         {
             // call delete api from service
+            partnerService.DeletePartner(EmailId);
+
         }
         else
         {
