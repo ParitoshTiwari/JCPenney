@@ -6,11 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using UsersAPI.Data;
+using UsersAPI.Repository;
 
 namespace UsersAPI
 {
@@ -28,6 +32,15 @@ namespace UsersAPI
         {
 
             services.AddControllers();
+            services.AddControllersWithViews()
+     .AddNewtonsoftJson(options =>
+     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+ );
+            
+
+            string mySqlConnectionStr = Configuration.GetConnectionString("ConnectSqlString");
+            services.AddDbContextPool<UserContext>(options => options.UseMySql(mySqlConnectionStr, new MySqlServerVersion(new Version(10, 1, 40)), mySqlOptions => mySqlOptions.CharSetBehavior(CharSetBehavior.NeverAppend)));
+            services.AddScoped<IUserOrder, UserOrder>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UsersAPI", Version = "v1" });

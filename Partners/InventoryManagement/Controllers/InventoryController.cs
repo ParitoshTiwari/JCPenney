@@ -29,7 +29,7 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProductInfo>> CreatePartner(ProductInfo productInfo)
+        public async Task<ActionResult<ProductInfo>> CreateProduct(ProductInfo productInfo)
         {
             if (productInfo is null)
                 return BadRequest(new ArgumentNullException());
@@ -45,7 +45,7 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpGet("{productId}")]
-        public async Task<ActionResult<ProductInfo>> GetPartner(string productId)
+        public async Task<ActionResult<ProductInfo>> GetProduct(string productId)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpPut("{productId}")]
-        public async Task<ActionResult<ProductInfo>> EditPartnerDetails(string productId, ProductInfo productInfo)
+        public async Task<ActionResult<ProductInfo>> EditProductDetails(string productId, ProductInfo productInfo)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace InventoryManagement.Controllers
         }
 
         [HttpDelete("{productId}")]
-        public async Task<ActionResult<ProductInfo>> RemovePartner(string productId)
+        public async Task<ActionResult<ProductInfo>> RemoveProduct(string productId)
         {
             try
             {

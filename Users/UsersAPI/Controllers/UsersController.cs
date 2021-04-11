@@ -3,37 +3,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using UsersAPI.Models;
+using UsersAPI.Repository;
 
 namespace UsersAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class UsersController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        private readonly IUserOrder _repository;
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public UsersController(IUserOrder repository)
         {
-            _logger = logger;
+            _repository = repository;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<UserOrderData>> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return await _repository.GetAllData();
         }
+
+        [HttpPost]
+        public async Task<ActionResult<UserOrderData>> CreateProduct(UserOrderData productInfo)
+        {
+            if (productInfo is null)
+                return BadRequest(new ArgumentNullException());
+            try
+            {
+                return await _repository.AddProducts(productInfo);
+            }
+            catch (Exception)
+            {
+                return Conflict();
+            }
+
+        }
+
+        [HttpGet("{productId}")]
+        public async Task<ActionResult<UserOrderData>> GetProduct(string productId)
+        {
+            try
+            {
+                return await _repository.GetProducts(productId).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+        }
+
+
+        [HttpDelete("{productId}")]
+        public async Task<ActionResult<UserOrderData>> RemoveProduct(string productId)
+        {
+            try
+            {
+                return await _repository.DeleteProduct(productId);
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
+        }
+
     }
 }
