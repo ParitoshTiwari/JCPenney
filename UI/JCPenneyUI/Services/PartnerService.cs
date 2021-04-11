@@ -23,9 +23,11 @@ namespace JCPenneyUI.Services
             return a;
         }
 
-        public async Task<IEnumerable<PartnerModel>> AddPartners(PartnerModel model)
+        public async HttpRes AddPartners(PartnerModel model)
         {
-            var resultData = await httpClient.PostAsJsonAsync<PartnerModel>("/Partners");
+            var resultData = await httpClient.PostAsJsonAsync<PartnerModel>("/Partners",model);
+            return resultData;
+
         }
     }
 }

@@ -11,11 +11,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{6FE7FB9C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PartnerDetails", "PartnerDetails", "{F8AEE08B-E67C-41DC-8BDD-6666539432BF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PartnerInventory", "PartnerInventory", "{37EB931F-942E-4B18-B188-2C08BCDE303B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartnerAPI", "PartnerAPI\PartnerAPI.csproj", "{FCFC0D62-FF23-48AF-ABC8-AF4F795E5B76}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement", "Partners\PartnerInventory\InventoryManagement\InventoryManagement.csproj", "{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A213F4CE-B642-463B-95C4-B83C5A5FBDE9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JCPenneyUI", "UI\JCPenneyUI\JCPenneyUI.csproj", "{FC4560CB-4525-4371-9B20-4EF5AA8BA378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAPI", "Users\UsersAPI\UsersAPI.csproj", "{A1EC6BA9-C07B-4F82-94D6-018E60D6E6EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +38,14 @@ Global
 		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4560CB-4525-4371-9B20-4EF5AA8BA378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4560CB-4525-4371-9B20-4EF5AA8BA378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4560CB-4525-4371-9B20-4EF5AA8BA378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4560CB-4525-4371-9B20-4EF5AA8BA378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1EC6BA9-C07B-4F82-94D6-018E60D6E6EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EC6BA9-C07B-4F82-94D6-018E60D6E6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EC6BA9-C07B-4F82-94D6-018E60D6E6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EC6BA9-C07B-4F82-94D6-018E60D6E6EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,8 +55,14 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F8AEE08B-E67C-41DC-8BDD-6666539432BF} = {FA70A1D9-6AF7-4D25-BA92-71ED294BC21A}
-		{37EB931F-942E-4B18-B188-2C08BCDE303B} = {FA70A1D9-6AF7-4D25-BA92-71ED294BC21A}
 		{FCFC0D62-FF23-48AF-ABC8-AF4F795E5B76} = {F8AEE08B-E67C-41DC-8BDD-6666539432BF}
-		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3} = {37EB931F-942E-4B18-B188-2C08BCDE303B}
+		{7A54AA73-AD01-4C41-A9AD-05617C86F9D3} = {F8AEE08B-E67C-41DC-8BDD-6666539432BF}
+		{FC4560CB-4525-4371-9B20-4EF5AA8BA378} = {AE55171C-0C75-4EDB-BCCC-F65ED968D2B4}
+		{A1EC6BA9-C07B-4F82-94D6-018E60D6E6EC} = {6FE7FB9C-0FC4-4AF8-B7E0-F617F692C1FE}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.StandardHeader = $1
+		$1.Text = "${FileName}${Directory}${FullFileName}${AuthorName}${AuthorEmail}${CopyrightHolder}*/${FileNameWithoutExtension}"
 	EndGlobalSection
 EndGlobal
