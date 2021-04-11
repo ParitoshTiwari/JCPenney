@@ -1,6 +1,6 @@
 using System;
 
-namespace PartnerAPI
+namespace UsersAPI
 {
     public class WeatherForecast
     {

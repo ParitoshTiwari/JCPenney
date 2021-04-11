@@ -1,0 +1,26 @@
+﻿@page "/editPartners"
+@inherits PartnerBase
+<h3>Edit Partner</h3>
+
+Enter email for which record to edit :
+<input type="text" @bind-value="EmailID" />
+
+Enter Name :
+<input type="text" @bind-value="Name" />
+Enter EmailID :
+<input type="text" @bind-value="Email" />
+Enter Phone Number :
+<input type="text" @bind-value="Phone" />
+
+<button @onclick="Update">Update</button>
+@code {
+    private string EmailID { get; set; }
+    private string Name { get; set; }
+    private string Email { get; set; }
+    private string Phone { get; set; }
+
+    private void Update()
+    {
+        
+    }
+}
