@@ -30,9 +30,19 @@ namespace JCPenneyUI.Pages
             partners = (await partnerService.GetPartners()).ToList();
         }
 
-        public async void AddPartner()
+        public async void AddPartner(PartnerModel model)
         {
-            partners = (await partnerService.)
+            partners = ((IEnumerable<PartnerModel>)await partnerService.AddPartners(model.Name, model.Email, model.PhoneNum));
+        }
+
+        public async void EditPartner(PartnerModel model, string email)
+        {
+            partners = ((IEnumerable<PartnerModel>)await partnerService.EditPartners(model.Name, model.Email, model.PhoneNum, email));
+        }
+
+        public async void DeletePartner(string deletePartner)
+        {
+            partners = ((IEnumerable<PartnerModel>)partnerService.DeletePartner(deletePartner));
         }
     }
 }

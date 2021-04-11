@@ -10,5 +10,8 @@ namespace JCPenneyUI.Services
     public interface IPartnerService
     {
         Task<IEnumerable<PartnerModel>> GetPartners();
+        Task<PartnerModel> AddPartners(string name, string email, string phone);
+        Task<PartnerModel> EditPartners(string name, string email, string phone, string emailID);
+        Task DeletePartner(string email);
     }
 }

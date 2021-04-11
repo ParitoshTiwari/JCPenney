@@ -10,15 +10,15 @@ Enter EmailID :
 Enter Phone Number :
 <input type="text" @bind-value="Phone" />
 
-<button @onclick="AddPartner">Add Partner</button>
+<button @onclick="AddPartnerDB">Add Partners</button>
 
 @code {
     private string Name { get; set; }
     private string Email { get; set; }
     private string Phone { get; set; }
 
-    private void AddPartner()
+    private void AddPartnerDB()
     {
-        partnerService.
+        partnerService.AddPartners(Name,Email,Phone);
     }
 }

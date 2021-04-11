@@ -11,7 +11,8 @@ namespace JCPenneyUI.Services
     public class PartnerService : IPartnerService
     {
         private readonly HttpClient httpClient;
-
+        private string ErrorMessage;
+        private PartnerModel partners;
         public PartnerService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
@@ -23,11 +24,40 @@ namespace JCPenneyUI.Services
             return a;
         }
 
-        public async HttpRes AddPartners(PartnerModel model)
+        public async Task<PartnerModel> AddPartners(string name, string email, string phone)
         {
+            PartnerModel model = new PartnerModel();
+            model.Name = name;
+            model.Email = email;
+            model.PhoneNum = phone;
             var resultData = await httpClient.PostAsJsonAsync<PartnerModel>("/Partners",model);
-            return resultData;
+            if (!resultData.IsSuccessStatusCode)
+            {
+                ErrorMessage = resultData.ReasonPhrase;
+            }
+            partners = await resultData.Content.ReadFromJsonAsync<PartnerModel>();
+            return partners;
+        }
 
+        public async Task<PartnerModel> EditPartners(string name, string email, string phone, string emailID)
+        {
+            PartnerModel model = new PartnerModel();
+            model.Name = name;
+            model.Email = email;
+            model.PhoneNum = phone;
+
+            var resultData = await httpClient.PutAsJsonAsync<PartnerModel>("/Partners", model);
+            if (!resultData.IsSuccessStatusCode)
+            {
+                ErrorMessage = resultData.ReasonPhrase;
+            }
+            partners = await resultData.Content.ReadFromJsonAsync<PartnerModel>();
+            return partners;
+        }
+
+        public async Task DeletePartner(string email)
+        {
+            var resultData = await httpClient.DeleteAsync("/Partners");
         }
     }
 }
