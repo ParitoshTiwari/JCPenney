@@ -4,7 +4,7 @@ This is a shopping cart application which mainly focusses on Creating, Displayin
 
 The technologies used to create this application are :
 
-1. .Net Core - 5.0
+1. Asp .Net Core - 5.0
 2. Server side Blazor for UI.
 3. Microsoft sql workbench.
 
