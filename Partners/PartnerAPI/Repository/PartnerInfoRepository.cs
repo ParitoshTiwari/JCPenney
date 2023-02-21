@@ -10,6 +10,9 @@ using PartnerAPI.Models;
 
 namespace PartnerAPI.Repository
 {
+    /// <summary>
+    /// Partner Info Repository
+    /// </summary>
     public class PartnerInfoRepository : IRepository
     {
         private readonly DBContext context;
